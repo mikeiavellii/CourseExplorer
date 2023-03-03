@@ -15,5 +15,18 @@ namespace CourseExplorerAPI.Controllers
         {
             return dbContext.Courses.ToList();
         }
+
+        //[HttpGet("GetAlCategories")]
+        //public List<Course> SerarchByCGetAlCategoriesategories()
+        //{
+        //    return dbContext.Courses.
+        //}
+
+        [HttpGet("SerarchByCategories")]
+        public List<Course> SerarchByCategories(string cat)
+        {
+            return dbContext.Courses.Where(c => c.CatDes == cat || c.Cat == cat).ToList();
+        }
+
     }
 }
